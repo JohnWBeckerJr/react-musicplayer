@@ -6,6 +6,8 @@ import Player from './components/player';
 import Song from './components/song'; 
 //Import Music 
 import data from './util'; 
+//Library 
+import Library from './components/library'
 
 function App() {
   //State 
@@ -19,6 +21,7 @@ function App() {
       setIsPlaying = { setIsPlaying }
       isPlaying = { isPlaying }
       currentSong = { currentSong } />
+      <Library songs = {songs} /> 
     </div>
   );
 }
