@@ -4,15 +4,47 @@
     left: 0;
     width: 20rem;
     height: 100% ;
-    background: lightcyan;
+    background: whitesmoke;
     box-shadow: 2px 2px 50px hotpink;
+    overflow: scroll;
+
+    h2 {
+        //padding: 0.7rem;
+
+    }
 
 }
 
 .library-song {
     display: flex;
     align-items: center;
+    padding: 1rem 2rem 1rem 2rem;
+    cursor: pointer;
     img {
         width: 30%;
     }
+    &:hover{
+        background: hotpink ;
+    }
+}
+
+.song-description {
+    padding-left: 1rem;
+    h2{
+        font-size: 1rem;
+    }
+    h3{
+        font-size: 0.7rem;
+    }
+}
+*::-webkit-scrollbar    {
+    width: 5px;  
+}
+*::-webkit-scrollbar-track   {
+    background: transparent; 
+}
+*::-webkit-scrollbar-thumb   {
+    background-color: lightseagreen;
+    border-radius: 20px;
+    border: transparent;
 }
