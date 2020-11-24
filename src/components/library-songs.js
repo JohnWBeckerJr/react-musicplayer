@@ -1,6 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { playAudio } from '../util';
 
-const LibrarySong = ({ song, songs, setCurrentSong, id, audioRef, isPlaying, setSongs }) => {
+
+const LibrarySong = ({ 
+    song, 
+    songs, 
+    setCurrentSong, 
+    id, 
+    audioRef, 
+    isPlaying, 
+    setSongs }) => {
     const songSelectHandler = () => {
         const selectedSong = songs.filter((state) => state.id === id); 
         setCurrentSong(selectedSong[0]); 
@@ -20,16 +29,9 @@ const LibrarySong = ({ song, songs, setCurrentSong, id, audioRef, isPlaying, set
                 }
         });
         setSongs(newSongs); 
-        //Check if song is playing 
-        if(isPlaying) {
-            const playPromise = audioRef.current.play();
-            if(playPromise !== undefined) {
-                playPromise.then((audio) => {
-                    audioRef.current.play();
-                });
-            }
-        }
-    }
+        //Check if song is playng 
+        playAudio(isPlaying, audioRef); 
+    };
     return (
         <div onClick = {songSelectHandler} className = {`library-song ${song.active ? 'selected' : ""}`} >
             <img alt = {song.name} src = {song.cover}></img>
@@ -38,7 +40,7 @@ const LibrarySong = ({ song, songs, setCurrentSong, id, audioRef, isPlaying, set
                 <h3>{song.artist}</h3>
             </div>
         </div>
-    )
-}
-
+    );
+};
+ 
 export default LibrarySong; 
